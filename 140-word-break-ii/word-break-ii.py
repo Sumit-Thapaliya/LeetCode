@@ -12,11 +12,9 @@ class Solution:
 
             result = []
 
-            for end in range(start + 1, len(s) + 1):
-                word = s[start:end]
-
-                if word in wordDict:
-                    for rest in solve(end):
+            for word in wordDict:
+                if s.startswith(word, start):
+                    for rest in solve(start + len(word)):
                         if rest == "":
                             result.append(word)
                         else:
